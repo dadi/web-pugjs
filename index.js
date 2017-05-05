@@ -8,9 +8,8 @@ module.exports = () => {
   const path = require('path')
 
   const debug = require('debug')('web:templates:pug')
+  const pug = require('pug')
   const wildcard = require('wildcard')
-
-  let pug
 
   const EnginePug = function (options) {
     debug('Starting Pug.js engine...')
@@ -19,8 +18,6 @@ module.exports = () => {
     this.helpers = options.helpers
     this.pagesPath = options.pagesPath
     this.templates = {}
-
-    pug = options.module ? options.module : require('pug')
   }
 
   /**
