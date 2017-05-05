@@ -1,0 +1,29 @@
+{
+  "name": "@dadi/web-pugjs",
+  "version": "1.0.0",
+  "description": "A Pug interface for DADI Web",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dadi/web-pugjs.git"
+  },
+  "keywords": [
+    "dadi",
+    "web",
+    "pug",
+    "pug.js",
+    "jade"
+  ],
+  "author": "Eduardo Boucas <mail@eduardoboucas.com>",
+  "bugs": {
+    "url": "https://github.com/dadi/web-pugjs/issues"
+  },
+  "homepage": "https://github.com/dadi/web-pugjs#readme",
+  "dependencies": {
+    "debug": "^2.6.6",
+    "pug": "^2.0.0-rc.1"
+  }
+}
