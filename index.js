@@ -4,12 +4,8 @@ const ENGINE = {
 }
 
 module.exports = () => {
-  const fs = require('fs')
-  const path = require('path')
-
   const debug = require('debug')('web:templates:pug')
   const pug = require('pug')
-  const wildcard = require('wildcard')
 
   const EnginePug = function (options) {
     debug('Starting Pug.js engine...')
