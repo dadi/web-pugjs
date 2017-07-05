@@ -1,0 +1,9 @@
+include /partials/header.pug
+
+h1 Products:
+
+ul
+  each val, index in products
+    li= val.name + ' - £' + val.price
+
+include /partials/footer.pug

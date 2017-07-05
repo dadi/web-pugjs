@@ -33,7 +33,7 @@ module.exports = () => {
   EnginePug.prototype.getInfo = function () {
     return {
       engine: ENGINE.handle,
-      //version: dust.version
+      version: undefined
     }
   }
 
