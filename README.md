@@ -20,7 +20,7 @@ This module allows [Pug.js](https://pugjs.org) templates to be used with [DADI W
 
 - Include it in the `engines` array passed to Web:
 
-   ```npm
+   ```js
    require('@dadi/web')({
      engines: [
        require('@dadi/web-pugjs')
@@ -47,7 +47,7 @@ pages/
 
 To include `header.pug` from `contact-info.pug`, you can do:
 
-```pugjs
+```pug
 //- Absolute path
 include /partials/common/header.pug
 
