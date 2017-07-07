@@ -28,7 +28,7 @@ This module allows [Pug.js](https://pugjs.org) templates to be used with [DADI W
    })
    ```
 
-## Usage notes
+## Usage
 
 ### Include paths
 
