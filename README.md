@@ -27,3 +27,30 @@ This module allows [Pug.js](https://pugjs.org) templates to be used with [DADI W
      ]
    })
    ```
+
+## Usage notes
+
+### Include paths
+
+Partials can be included using the `include` keyword and paths to the included files can be absolute or relative (see [Pug's documentation](https://pugjs.org/language/includes.html)).
+
+The base directory for absolute paths is the `pages/` directory. Take the following directory tree.
+
+```
+pages/
+|_ partials/
+|_ |_ common/
+|_ |_ |_ header.pug
+|_ |_ contact-info.pug
+|_ home.pug
+```
+
+To include `header.pug` from `contact-info.pug`, you can do:
+
+```pugjs
+//- Absolute path
+include /partials/common/header.pug
+
+//- Relative path
+include common/header.pug
+```
