@@ -1,6 +1,6 @@
 {
   "name": "@dadi/web-pugjs",
-  "version": "0.0.0-development",
+  "version": "0.0.0",
   "description": "A Pug interface for DADI Web",
   "main": "index.js",
   "scripts": {
