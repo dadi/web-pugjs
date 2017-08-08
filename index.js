@@ -6,6 +6,7 @@ const ENGINE = {
 module.exports = () => {
   const debug = require('debug')('web:templates:pug')
   const pug = require('pug')
+  const requireDir = require('require-dir')
 
   const EnginePug = function (options) {
     debug('Starting Pug.js engine...')
@@ -44,6 +45,13 @@ module.exports = () => {
     */
   EnginePug.prototype.initialise = function () {
     debug('Pug initialised')
+
+    if (this.config.engines &&
+      this.config.engines.pug &&
+      this.config.engines.pug.paths && this.config.engines.pug.paths.helpers
+    ) {
+      this.helperFunctions = requireDir(this.config.engines.pug.paths.helpers, { recurse: true, camelcase: true })
+    }
   }
 
   /**
@@ -69,6 +77,10 @@ module.exports = () => {
     * @return {Promise} A Promise that resolves with the render result.
     */
   EnginePug.prototype.render = function (name, data, locals, options) {
+    if (this.helperFunctions) {
+      Object.assign(locals, this.helperFunctions)
+    }
+
     return Promise.resolve(this.templates[name](locals))
   }
 

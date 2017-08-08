@@ -14,7 +14,8 @@ const ADDITIONAL_TEMPLATES = {
 }
 
 const PAGES = {
-  products: fs.readFileSync(path.join(PATHS.workspace, 'pages/products.pug'), 'utf8')
+  products: fs.readFileSync(path.join(PATHS.workspace, 'pages/products.pug'), 'utf8'),
+  'products-with-helpers': fs.readFileSync(path.join(PATHS.workspace, 'pages/products-with-helpers.pug'), 'utf8')
 }
 
 module.exports.additionalTemplates = ADDITIONAL_TEMPLATES

@@ -52,7 +52,7 @@ describe('Pug.js interface', function () {
     const Engine = factory()
     const instance = new Engine({
       additionalTemplates: Object.keys(helpers.additionalTemplates).map(name => helpers.additionalTemplates[name]),
-      config: config,
+      config: config.config,
       pagesPath: path.join(helpers.paths.workspace, 'pages')
     })
 
@@ -65,11 +65,25 @@ describe('Pug.js interface', function () {
     })
   })
 
+  it('should load helpers', done => {
+    const Engine = factory()
+    const instance = new Engine({
+      additionalTemplates: Object.keys(helpers.additionalTemplates).map(name => helpers.additionalTemplates[name]),
+      config: config.config,
+      pagesPath: path.join(helpers.paths.workspace, 'pages')
+    })
+
+    Promise.resolve(instance.initialise()).then(() => {
+      (typeof instance.helperFunctions.trim).should.eql('function')
+      done()
+    })
+  })
+
   it('should render pages with locals', done => {
     const Engine = factory()
     const instance = new Engine({
       additionalTemplates: Object.keys(helpers.additionalTemplates).map(name => helpers.additionalTemplates[name]),
-      config: config,
+      config: config.config,
       pagesPath: path.join(helpers.paths.workspace, 'pages')
     })
 
@@ -104,6 +118,51 @@ describe('Pug.js interface', function () {
       return instance.register('products', helpers.pages.products)
     }).then(() => {
       return instance.render('products', helpers.pages.products, locals)
+    }).then(output => {
+      htmlLooksLike(output, expected)
+
+      done()
+    })
+  })
+
+  it('should render pages with helpers', done => {
+    const Engine = factory()
+    const instance = new Engine({
+      additionalTemplates: Object.keys(helpers.additionalTemplates).map(name => helpers.additionalTemplates[name]),
+      config: config.config,
+      pagesPath: path.join(helpers.paths.workspace, 'pages')
+    })
+
+    const locals = {
+      products: [
+        {
+          name: '    Super Thing 3000     ',
+          price: 5000
+        },
+        {
+          name: '    Mega Thang XL',
+          price: 8000
+        }
+      ]
+    }
+
+    const expected = `
+      <header>My online store</header>
+
+      <h1>Products:</h1>
+
+      <ul>
+        <li>Super Thing 3000 - £5000</li>
+        <li>Mega Thang XL - £8000</li>
+      </ul>
+
+      <footer>Made by DADI</footer>
+    `
+
+    Promise.resolve(instance.initialise()).then(() => {
+      return instance.register('products-with-helpers', helpers.pages['products-with-helpers'])
+    }).then(() => {
+      return instance.render('products-with-helpers', helpers.pages['products-with-helpers'], locals)
     }).then(output => {
       htmlLooksLike(output, expected)
 
