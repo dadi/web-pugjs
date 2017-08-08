@@ -1,4 +1,11 @@
 const ENGINE = {
+  config: {
+    paths: {
+      doc: 'Paths required by Pug.js',
+      format: Object,
+      default: {}
+    }
+  },
   extensions: ['.pug'],
   handle: 'pug'
 }
