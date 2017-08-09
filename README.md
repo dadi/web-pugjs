@@ -54,3 +54,54 @@ include /partials/common/header.pug
 //- Relative path
 include common/header.pug
 ```
+
+### Helper functions
+
+Add a DADI Web configuration setting for `helpers`, pointing to a directory containing helper files. Each `.js` helper file will be added as a property to template locals for use within templates.
+
+#### Configuration
+
+```
+  engines: {
+    pug: {
+      paths: {
+        helpers: 'test/workspace/helpers'
+      }
+    }
+  }
+```
+
+#### Directory structure
+
+```
+helpers/
+|_ trim.js
+pages/
+|_ partials/
+|_ |_ common/
+|_ |_ |_ header.pug
+|_ |_ contact-info.pug
+|_ home.pug
+```
+
+#### Locals
+
+The function is added to the template locals, along with data objects:
+
+```
+{
+  products: [
+    { name: 'The Old Man and the Sea' }
+  ],
+  trim: [Function]
+}
+```
+
+#### Usage
+
+Use the function in templates like so:
+
+```
+h1= trim(product.name)
+```
+
