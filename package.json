@@ -17,7 +17,8 @@
     "web",
     "pug",
     "pug.js",
-    "jade"
+    "jade",
+    "dadi-web-engine"
   ],
   "author": "Eduardo Boucas <mail@eduardoboucas.com>",
   "bugs": {
