@@ -4,7 +4,7 @@ const objectPath = require('object-path')
 
 const CONFIG_PROPERTIES = {
   engines: {
-    dust: {
+    pug: {
       paths: {
         filters: 'test/workspace/filters',
         helpers: 'test/workspace/helpers'
