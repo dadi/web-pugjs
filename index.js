@@ -12,6 +12,7 @@ const ENGINE = {
 
 module.exports = () => {
   const debug = require('debug')('web:templates:pug')
+  const path = require('path')
   const pug = require('pug')
   const requireDir = require('require-dir')
 
@@ -53,11 +54,14 @@ module.exports = () => {
   EnginePug.prototype.initialise = function () {
     debug('Pug initialised')
 
-    if (this.config.engines &&
-      this.config.engines.pug &&
-      this.config.engines.pug.paths && this.config.engines.pug.paths.helpers
+    const engineConfig = this.config.get('engines')
+
+    if (engineConfig &&
+      engineConfig.pug &&
+      engineConfig.pug.paths && engineConfig.pug.paths.helpers
     ) {
-      this.helperFunctions = requireDir(this.config.engines.pug.paths.helpers, { recurse: true, camelcase: true })
+      const helperPath = path.join(process.cwd(), engineConfig.pug.paths.helpers)
+      this.helperFunctions = requireDir(helperPath, { recurse: true, camelcase: true })
     }
   }
 

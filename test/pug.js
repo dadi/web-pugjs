@@ -52,7 +52,7 @@ describe('Pug.js interface', function () {
     const Engine = factory()
     const instance = new Engine({
       additionalTemplates: Object.keys(helpers.additionalTemplates).map(name => helpers.additionalTemplates[name]),
-      config: config.config,
+      config: config,
       pagesPath: path.join(helpers.paths.workspace, 'pages')
     })
 
@@ -69,7 +69,7 @@ describe('Pug.js interface', function () {
     const Engine = factory()
     const instance = new Engine({
       additionalTemplates: Object.keys(helpers.additionalTemplates).map(name => helpers.additionalTemplates[name]),
-      config: config.config,
+      config: config,
       pagesPath: path.join(helpers.paths.workspace, 'pages')
     })
 
@@ -83,7 +83,7 @@ describe('Pug.js interface', function () {
     const Engine = factory()
     const instance = new Engine({
       additionalTemplates: Object.keys(helpers.additionalTemplates).map(name => helpers.additionalTemplates[name]),
-      config: config.config,
+      config: config,
       pagesPath: path.join(helpers.paths.workspace, 'pages')
     })
 
@@ -129,7 +129,7 @@ describe('Pug.js interface', function () {
     const Engine = factory()
     const instance = new Engine({
       additionalTemplates: Object.keys(helpers.additionalTemplates).map(name => helpers.additionalTemplates[name]),
-      config: config.config,
+      config: config,
       pagesPath: path.join(helpers.paths.workspace, 'pages')
     })
 
