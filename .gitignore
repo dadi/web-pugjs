@@ -2,3 +2,4 @@ coverage
 node_modules/
 scripts/*.svg
 .DS_Store
+.nyc_output/
