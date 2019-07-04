@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "snazzy 'index.js' && env NODE_ENV=test ./node_modules/.bin/nyc --reporter=lcov ./node_modules/mocha/bin/_mocha test && ./node_modules/.bin/nyc report",
-    "posttest": "./scripts/coverage.js"
+    "posttest": "./scripts/coverage.js",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -27,7 +29,8 @@
   "dependencies": {
     "debug": "^2.6.6",
     "pug": "^2.0.0-rc.1",
-    "require-dir": "^0.3.2"
+    "require-dir": "^0.3.2",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "colors": "^1.1.2",
@@ -41,5 +44,6 @@
     "sinon": "~1.17.6",
     "snazzy": "^6.0.0",
     "standard": "*"
-  }
+  },
+  "snyk": true
 }
